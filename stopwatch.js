@@ -3,28 +3,28 @@
 function StopWatch() {
     let duration = 0;
 
-    let start_time
-    let end_time
+    let startTime
+    let endTime
 
-    running = false
-    
+    let running = false
+
     let start = function() {
         if (running) {
-            throw "Stopwatch has already started.";
+            throw new Error("Stopwatch has already started.")
         }
         let d = new Date();
-        start_time = d.getTime()
+        startTime = d.getTime()
         running = true;
     }
     
     let stop = function() {
         if (!running){
-            throw "Stopwatch is not started"
+            throw new Error("Stopwatch is not started.")
         }
         let d = new Date();
-        end_time = d.getTime()
+        endTime = d.getTime()
         running = false
-        duration += (end_time - start_time) / 1000
+        duration += (endTime - startTime) / 1000
     }
 
     let reset = function() {
